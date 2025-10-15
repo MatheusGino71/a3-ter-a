@@ -6,6 +6,8 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
+  basePath: process.env.NODE_ENV === 'production' ? '/a3-ter-a' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/a3-ter-a/' : '',
   
   // Otimizações para desenvolvimento
   experimental: {
