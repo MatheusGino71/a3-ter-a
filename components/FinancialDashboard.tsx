@@ -12,6 +12,7 @@ import GoalsList from './GoalsList'
 import ReportsSection from './ReportsSection'
 import RetirementProjection from './RetirementProjection'
 import TransactionsSection from './TransactionsSection'
+import FinanceSection from './FinanceSection'
 import styles from './FinancialDashboard.module.css'
 
 export interface Expense {
@@ -52,7 +53,7 @@ export default function FinancialDashboard({ onBackToHome }: FinancialDashboardP
   const [income, setIncome] = useState<number>(0)
   const [expenses, setExpenses] = useState<Expense[]>([])
   const [goals, setGoals] = useState<SavingsGoal[]>([])
-  const [activeTab, setActiveTab] = useState<'overview' | 'goals' | 'reports' | 'retirement' | 'transactions'>('overview')
+  const [activeTab, setActiveTab] = useState<'overview' | 'goals' | 'reports' | 'retirement' | 'transactions' | 'finance'>('overview')
 
   // Persistência de dados no localStorage
   useEffect(() => {
@@ -200,6 +201,12 @@ export default function FinancialDashboard({ onBackToHome }: FinancialDashboardP
             onClick={() => setActiveTab('transactions')}
           >
             Transações
+          </button>
+          <button 
+            className={`text-sm font-medium transition-colors ${activeTab === 'finance' ? 'text-blue-400' : 'text-slate-400 hover:text-blue-400'}`}
+            onClick={() => setActiveTab('finance')}
+          >
+            Finanças
           </button>
         </nav>
         <div className="flex items-center gap-4">
@@ -399,8 +406,15 @@ export default function FinancialDashboard({ onBackToHome }: FinancialDashboardP
               />
             </>
           )}
+
+          {/* Finanças */}
+          {activeTab === 'finance' && (
+            <>
+              <FinanceSection />
+            </>
+          )}
         </div>
       </main>
     </div>
-  );
+  )
 }
