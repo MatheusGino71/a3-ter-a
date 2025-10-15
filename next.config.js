@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Configuração para export estático (GitHub Pages)
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true
+  },
+  
   // Otimizações para desenvolvimento
   experimental: {
     optimizeCss: false, // Desabilita otimização de CSS durante desenvolvimento
