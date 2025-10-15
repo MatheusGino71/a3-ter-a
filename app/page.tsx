@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import FinancialDashboard from '@/components/FinancialDashboard'
+import VideoBackground from '@/components/VideoBackground'
 import styles from './page.module.css'
 
 export default function Home() {
@@ -12,17 +13,9 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
       {/* Video Background */}
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-      >
-        <source src="/Design sem nome.mp4" type="video/mp4" />
-      </video>
+      <VideoBackground className="absolute top-0 left-0 w-full h-full object-cover z-0" />
       
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10" />
