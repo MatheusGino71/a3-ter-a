@@ -13,41 +13,45 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 - **Resumo Financeiro em Tempo Real**: Visualize saldo mensal e taxa de economia instantaneamente
 - **Gráfico Interativo**: Veja a distribuição de suas despesas em um gráfico de pizza
 - **Simulação de Cenários**: Experimente diferentes cenários financeiros e compare resultados
-- **Insights Automáticos**: Receba alertas e recomendações baseadas em sua situação financeira
+- **Metas de Economia**: Defina e acompanhe metas financeiras
+- **Projeção de Aposentadoria**: Calcule sua aposentadoria com base nos dados atuais
+- **Histórico de Transações**: Visualize e filtre todas as suas transações
+- **Design Profissional**: Interface moderna com glassmorphism e tema escuro
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Framework**: Next.js 14+ (App Router)
+- **Framework**: Next.js 15+ (App Router)
 - **Linguagem**: TypeScript
 - **Biblioteca de Gráficos**: Chart.js + react-chartjs-2
-- **Estilização**: CSS Modules
+- **Estilização**: Tailwind CSS + CSS Modules
 - **Gerenciamento de Estado**: React Hooks (useState, useMemo, useCallback)
+- **Persistência**: localStorage
 
 ## 📁 Estrutura do Projeto
 
 ```
 /
 ├── app/
-│   ├── layout.tsx          # Layout principal da aplicação
-│   ├── page.tsx             # Página inicial
-│   └── page.module.css      # Estilos da página
+│   ├── layout.tsx          # Layout principal com configuração de fontes
+│   ├── page.tsx            # Página inicial com vídeo background
+│   └── page.module.css     # Estilos da página
 ├── components/
-│   ├── FinancialDashboard.tsx         # Componente principal
-│   ├── FinancialDashboard.module.css
+│   ├── FinancialDashboard.tsx         # Dashboard principal
 │   ├── IncomeInput.tsx                # Input de renda
-│   ├── IncomeInput.module.css
 │   ├── ExpenseForm.tsx                # Formulário de despesas
-│   ├── ExpenseForm.module.css
 │   ├── ExpenseList.tsx                # Lista de despesas
-│   ├── ExpenseList.module.css
-│   ├── Summary.tsx                    # Resumo financeiro
-│   ├── Summary.module.css
 │   ├── ExpenseChart.tsx               # Gráfico de despesas
-│   ├── ExpenseChart.module.css
+│   ├── Summary.tsx                    # Resumo financeiro
 │   ├── ScenarioSimulator.tsx          # Simulador de cenários
-│   └── ScenarioSimulator.module.css
+│   ├── GoalForm.tsx                   # Formulário de metas
+│   ├── GoalsList.tsx                  # Lista de metas
+│   ├── ReportsSection.tsx             # Seção de relatórios
+│   ├── RetirementProjection.tsx       # Projeção de aposentadoria
+│   └── TransactionsSection.tsx        # Histórico de transações
 ├── styles/
 │   └── globals.css          # Estilos globais
+├── public/
+│   └── Design sem nome.mp4  # Vídeo de background
 ├── package.json
 ├── tsconfig.json
 └── next.config.js
@@ -62,7 +66,11 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 
 ### Instalação
 
-1. **Clone o repositório** (ou extraia os arquivos)
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/MatheusGino71/a3-ter-a.git
+   cd a3-ter-a
+   ```
 
 2. **Instale as dependências**:
    ```bash
@@ -70,7 +78,7 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
    ```
 
    As principais dependências incluem:
-   - `next@^15.0.0`
+   - `next@^15.5.4`
    - `react@^18.3.0`
    - `react-dom@^18.3.0`
    - `chart.js@^4.4.0`
@@ -103,65 +111,95 @@ npm start
 
 ## 📊 Como Usar
 
-1. **Insira sua Renda**: Digite o valor da sua renda mensal no campo "Renda Mensal"
+1. **Acesse a Plataforma**: Clique em "Acessar Plataforma" na tela inicial
 
-2. **Adicione Despesas**: Use o formulário para adicionar suas despesas com nome e valor
+2. **Adicione sua Renda**: Na aba "Dashboard", insira sua renda mensal
 
-3. **Visualize o Resumo**: Acompanhe em tempo real:
-   - Renda Total
-   - Despesas Totais
-   - Saldo Mensal
-   - Taxa de Economia
+3. **Registre Despesas**: Use o formulário para adicionar despesas com categoria
 
-4. **Analise o Gráfico**: Veja a distribuição percentual de suas despesas
+4. **Defina Metas**: Na aba "Metas", crie objetivos de economia
 
-5. **Simule Cenários**: 
-   - Ajuste a renda simulada
-   - Adicione ou modifique despesas no simulador
-   - Compare resultados atual vs. simulado
-   - Receba insights sobre o impacto das mudanças
+5. **Visualize Relatórios**: Acesse a aba "Relatórios" para análises detalhadas
+
+6. **Projete sua Aposentadoria**: Use o "Simulador" para planejar o futuro
+
+7. **Acompanhe Transações**: Na aba "Transações", veja todo o histórico
 
 ## 🎨 Características da Interface
 
-- **Design Responsivo**: Funciona perfeitamente em desktop, tablet e mobile
-- **Interface Intuitiva**: Componentes organizados e fáceis de usar
-- **Feedback Visual**: Cores indicativas para saldo positivo/negativo
-- **Animações Suaves**: Transições e efeitos hover para melhor UX
-- **Alertas Inteligentes**: Notificações quando taxa de economia está baixa ou há déficit
+- **Design Moderno**: Interface profissional com glassmorphism
+- **Tema Escuro**: Palette de cores otimizada para conforto visual
+- **Responsivo**: Funciona perfeitamente em todos os dispositivos
+- **Navegação Intuitiva**: Abas organizadas no header principal
+- **Feedback Visual**: Cores semânticas para diferentes estados
+- **Animações Suaves**: Transições e hover effects profissionais
 
-## 🧩 Componentização
+## 🧩 Arquitetura dos Componentes
 
-A aplicação segue princípios de componentização do React:
+### Dashboard Principal
+- **FinancialDashboard**: Orquestra todas as seções com navegação por abas
+- **Header Profissional**: Logo, navegação e ações do usuário
+- **Layout Responsivo**: Grid system com Tailwind CSS
 
-- **FinancialDashboard**: Gerencia o estado global e orquestra os componentes
-- **IncomeInput**: Componente controlado para entrada de renda
-- **ExpenseForm**: Formulário com validação para novas despesas
-- **ExpenseList**: Lista renderizada com botões de remoção
-- **Summary**: Cards informativos com cálculos em tempo real
-- **ExpenseChart**: Integração com Chart.js para visualização de dados
-- **ScenarioSimulator**: Simulador independente com estado próprio
+### Seções Funcionais
+- **Overview**: Resumo geral com cards e gráficos
+- **Metas**: Gerenciamento de objetivos financeiros
+- **Relatórios**: Análises e insights detalhados
+- **Simulador**: Projeção de aposentadoria
+- **Transações**: Histórico completo com filtros
+
+### Componentes Reutilizáveis
+- **Formulários**: Validação e feedback em tempo real
+- **Gráficos**: Integração com Chart.js customizada
+- **Cards**: Componentes modulares para dados
+- **Tabelas**: Listagem responsiva com ações
 
 ## 🔧 Configuração TypeScript
 
-O projeto utiliza TypeScript com configurações estritas para garantir type safety:
+Interfaces bem estruturadas:
 
-- Interfaces bem definidas (`Expense`, `FinancialSummary`)
-- Props tipadas em todos os componentes
-- Uso correto de hooks com generics
+```typescript
+interface Expense {
+  id: string
+  name: string
+  amount: number
+  category?: string
+  date?: string
+}
+
+interface SavingsGoal {
+  id: string
+  name: string
+  targetAmount: number
+  currentAmount: number
+  deadline: string
+  createdAt: string
+}
+```
 
 ## 📝 Scripts Disponíveis
 
-- `npm run dev` - Inicia o servidor de desenvolvimento
-- `npm run build` - Cria build de produção
-- `npm start` - Executa a aplicação em modo produção
-- `npm run lint` - Executa o linter ESLint
+- `npm run dev` - Servidor de desenvolvimento
+- `npm run build` - Build de produção
+- `npm start` - Execução em produção
+- `npm run lint` - Verificação de código
 
 ## 🌟 Destaques Técnicos
 
-- **Performance Otimizada**: Uso de `useMemo` e `useCallback` para evitar re-renderizações desnecessárias
-- **Código Limpo**: Seguindo best practices do React e TypeScript
-- **CSS Modular**: Estilos escopados evitando conflitos
-- **Acessibilidade**: Labels apropriados e estrutura semântica HTML
+- **Performance**: Otimizada com `useMemo` e `useCallback`
+- **Persistência**: Dados salvos em localStorage
+- **Validação**: Verificações em tempo real
+- **Acessibilidade**: Estrutura semântica e ARIA labels
+- **SEO**: Metadata otimizada com Next.js
+- **Fontes**: Otimização automática com `next/font/google`
+
+## 🎥 Demonstração
+
+A aplicação inclui:
+- Tela inicial com vídeo background profissional
+- Dashboard completo com múltiplas funcionalidades
+- Interface responsiva e moderna
+- Dados persistentes entre sessões
 
 ## 📄 Licença
 
@@ -169,4 +207,4 @@ Este projeto foi desenvolvido para fins educacionais.
 
 ## 👨‍💻 Desenvolvimento
 
-Desenvolvido com ❤️ usando as melhores práticas de desenvolvimento web moderno.
+Desenvolvido com ❤️ usando as melhores práticas de desenvolvimento web moderno, incluindo Next.js 15, TypeScript, Tailwind CSS e design system profissional.
