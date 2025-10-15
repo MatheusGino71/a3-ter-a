@@ -1,0 +1,255 @@
+.dashboard {
+  width: 100%;
+}
+
+/* Header with tabs and actions */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tab {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.tab:hover {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #0070f3, #1193d4);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 112, 243, 0.3);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.exportButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #10b981;
+  border-radius: 6px;
+  background: #f0fdf4;
+  color: #059669;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.exportButton:hover {
+  background: #10b981;
+  color: white;
+}
+
+.clearButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ef4444;
+  border-radius: 6px;
+  background: #fef2f2;
+  color: #dc2626;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.clearButton:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* Goals Section */
+.goalsSection {
+  padding: 1.5rem;
+}
+
+.goalsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.goalsHeader h2 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.section {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.section h2 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.simulatorSection {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--primary-color);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .tabs {
+    justify-content: center;
+  }
+  
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .actions {
+    justify-content: center;
+  }
+  
+  .section {
+    padding: 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.25rem;
+  }
+  
+  .goalsSection {
+    padding: 1rem;
+  }
+  
+  .goalsHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .simulatorSection {
+    padding: 1.5rem;
+  }
+  
+  .noDataContent {
+    padding: 1.5rem;
+  }
+  
+  .noDataContent h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* No Data Message */
+.noDataMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.noDataContent {
+  text-align: center;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.noDataContent h2 {
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.noDataContent p {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.noDataContent ul {
+  text-align: left;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.noDataContent li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.goToOverviewButton {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.goToOverviewButton:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.retirementSection {
+  padding: 1rem 0;
+}
