@@ -2,7 +2,15 @@
 
 Uma aplicação web interativa desenvolvida com Next.js 14+, React e TypeScript para ajudar usuários a compreender o impacto de suas decisões financeiras no equilíbrio orçamentário.
 
-## 🎯 Objetivo
+## � Demonstração Online
+
+**🔗 [Acesse a Aplicação](https://matheusgino71.github.io/a3-ter-a/)**
+
+> 📱 **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
+> 
+> 🚀 **Deploy automático** - Atualizado automaticamente via GitHub Actions
+
+## �🎯 Objetivo
 
 Responder à questão: **"Como a simulação de cenários financeiros pode influenciar a tomada de decisão e o comportamento de planejamento pessoal dos usuários?"**
 
