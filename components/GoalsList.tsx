@@ -68,7 +68,6 @@ export default function GoalsList({
   if (goals.length === 0) {
     return (
       <div className="text-center py-8">
-        <div className="text-4xl mb-4">🎯</div>
         <h3 className="text-lg font-semibold text-white mb-2">Nenhuma meta definida</h3>
         <p className="text-slate-400 text-sm">Crie sua primeira meta de economia para começar a organizar seus objetivos financeiros.</p>
       </div>
@@ -102,7 +101,7 @@ export default function GoalsList({
                 className="text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded p-1 transition-colors"
                 title="Remover meta"
               >
-                🗑️
+                X
               </button>
             </div>
 
@@ -122,13 +121,13 @@ export default function GoalsList({
                     onClick={() => handleEditSave(goal.id)}
                     className="px-2 py-1 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
                   >
-                    ✓
+                    OK
                   </button>
                   <button
                     onClick={handleEditCancel}
                     className="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
                   >
-                    ✕
+                    X
                   </button>
                 </div>
               ) : (

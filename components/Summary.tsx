@@ -34,7 +34,7 @@ export default function Summary({ summary }: SummaryProps) {
       </div>
 
       <div className={`${styles.card} ${styles.highlightCard}`}>
-        <div className={styles.cardIcon}>{balance >= 0 ? '✅' : '⚠️'}</div>
+        <div className={styles.cardIcon}>{balance >= 0 ? '[OK]' : '[!]'}</div>
         <div className={styles.cardContent}>
           <span className={styles.cardLabel}>Saldo Mensal</span>
           <span className={`${styles.cardValue} ${balanceClass}`}>
@@ -44,7 +44,7 @@ export default function Summary({ summary }: SummaryProps) {
       </div>
 
       <div className={`${styles.card} ${styles.highlightCard}`}>
-        <div className={styles.cardIcon}>📊</div>
+        <div className={styles.cardIcon}></div>
         <div className={styles.cardContent}>
           <span className={styles.cardLabel}>Taxa de Economia</span>
           <span className={`${styles.cardValue} ${savingsClass}`}>
@@ -55,14 +55,14 @@ export default function Summary({ summary }: SummaryProps) {
 
       {savingsPercentage < 10 && totalIncome > 0 && (
         <div className={styles.alert}>
-          <strong>⚠️ Atenção:</strong> Sua taxa de economia está abaixo de 10%. 
+          <strong>ATENÇÃO:</strong> Sua taxa de economia está abaixo de 10%. 
           Considere revisar suas despesas!
         </div>
       )}
 
       {balance < 0 && (
         <div className={styles.alertDanger}>
-          <strong>🚨 Alerta:</strong> Suas despesas excedem sua renda! 
+          <strong>ALERTA:</strong> Suas despesas excedem sua renda! 
           É necessário ajustar seu orçamento.
         </div>
       )}

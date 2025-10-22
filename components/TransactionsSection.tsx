@@ -91,7 +91,6 @@ export default function TransactionsSection({ income, expenses }: TransactionsSe
   if (transactions.length === 0) {
     return (
       <div className="text-center py-12">
-        <div className="text-4xl mb-4">💳</div>
         <h3 className="text-xl font-semibold text-white mb-2">Nenhuma transação encontrada</h3>
         <p className="text-slate-400">Adicione receitas e despesas para ver seu histórico de transações.</p>
       </div>

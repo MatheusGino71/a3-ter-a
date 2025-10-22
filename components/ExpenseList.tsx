@@ -37,7 +37,7 @@ export default function ExpenseList({ expenses, onRemoveExpense }: ExpenseListPr
                   className="text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-full p-1 transition-colors"
                   title="Remover despesa"
                 >
-                  ✕
+                  X
                 </button>
               </div>
             </li>

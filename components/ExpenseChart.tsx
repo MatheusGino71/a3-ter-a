@@ -81,7 +81,6 @@ export default function ExpenseChart({ expenses }: ExpenseChartProps) {
   if (!chartData) {
     return (
       <div className="flex flex-col items-center justify-center h-64 text-center">
-        <div className="text-4xl mb-4">📊</div>
         <p className="text-white text-lg mb-2">Nenhum dado para exibir</p>
         <p className="text-slate-400 text-sm">
           Adicione despesas para visualizar o gráfico de distribuição

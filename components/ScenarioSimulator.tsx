@@ -85,9 +85,7 @@ export default function ScenarioSimulator({
   if (currentIncome === 0) {
     return (
       <div className={styles.container}>
-        <h2 className={styles.title}>🔮 Simulação de Cenários</h2>
         <div className={styles.noDataMessage}>
-          <p>Para usar o simulador de cenários, você precisa primeiro inserir sua renda e despesas.</p>
         </div>
       </div>
     )
@@ -95,11 +93,6 @@ export default function ScenarioSimulator({
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>🔮 Simulação de Cenários</h2>
-      <p className={styles.subtitle}>
-        Experimente diferentes cenários financeiros e veja o impacto no seu orçamento
-      </p>
-
       <div className={styles.grid}>
         {/* Painel de Simulação */}
         <div className={styles.panel}>
@@ -164,7 +157,7 @@ export default function ScenarioSimulator({
                     onClick={() => handleRemoveSimulatedExpense(expense.id)}
                     className={styles.removeButton}
                   >
-                    ✕
+                    X
                   </button>
                 </div>
               ))
@@ -263,17 +256,17 @@ export default function ScenarioSimulator({
             <h4>💡 Insights da Simulação</h4>
             {differences.balanceDiff > 0 && (
               <div className={styles.insightPositive}>
-                ✅ Seu saldo melhoraria em R$ {Math.abs(differences.balanceDiff).toFixed(2)}
+                [+] Seu saldo melhoraria em R$ {Math.abs(differences.balanceDiff).toFixed(2)}
               </div>
             )}
             {differences.balanceDiff < 0 && (
               <div className={styles.insightNegative}>
-                ⚠️ Seu saldo pioraria em R$ {Math.abs(differences.balanceDiff).toFixed(2)}
+                [-] Seu saldo pioraria em R$ {Math.abs(differences.balanceDiff).toFixed(2)}
               </div>
             )}
             {differences.savingsDiff > 0 && (
               <div className={styles.insightPositive}>
-                📈 Sua taxa de economia aumentaria {Math.abs(differences.savingsDiff).toFixed(1)}%
+                [+] Sua taxa de economia aumentaria {Math.abs(differences.savingsDiff).toFixed(1)}%
               </div>
             )}
             {differences.savingsDiff < 0 && (
@@ -283,7 +276,7 @@ export default function ScenarioSimulator({
             )}
             {simulatedSummary.balance < 0 && (
               <div className={styles.insightWarning}>
-                🚨 Atenção: O cenário simulado resultaria em déficit orçamentário!
+                ATENÇÃO: O cenário simulado resultaria em déficit orçamentário!
               </div>
             )}
           </div>

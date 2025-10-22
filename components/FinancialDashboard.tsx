@@ -338,7 +338,7 @@ export default function FinancialDashboard({ onBackToHome }: FinancialDashboardP
               <h1 className="text-3xl font-bold text-white mb-8">Relatórios Financeiros</h1>
               {summary.totalIncome === 0 && expenses.length === 0 ? (
                 <div className="rounded-lg bg-slate-800/50 backdrop-blur-sm p-12 border border-slate-700 text-center">
-                  <p className="text-lg text-slate-400 mb-4">📊 Adicione receitas e despesas para ver relatórios detalhados</p>
+                  <p className="text-lg text-slate-400 mb-4">Adicione receitas e despesas para ver relatórios detalhados</p>
                   <button 
                     onClick={() => setActiveTab('overview')}
                     className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 transition-colors"
@@ -377,12 +377,12 @@ export default function FinancialDashboard({ onBackToHome }: FinancialDashboardP
                 </div>
               ) : (
                 <div className="rounded-lg bg-slate-800/50 backdrop-blur-sm p-12 border border-slate-700 text-center">
-                  <h2 className="text-xl font-bold text-white mb-4">📈 Projeção de Aposentadoria</h2>
+                  <h2 className="text-xl font-bold text-white mb-4">Projeção de Aposentadoria</h2>
                   <p className="text-slate-400 mb-6">Para visualizar sua projeção de aposentadoria, você precisa primeiro:</p>
                   <ul className="text-left text-slate-400 mb-6 inline-block">
-                    <li>✅ Inserir sua renda mensal na aba &quot;Visão Geral&quot;</li>
-                    <li>✅ Adicionar suas despesas mensais</li>
-                    <li>✅ O sistema calculará automaticamente sua capacidade de poupança</li>
+                    <li>• Inserir sua renda mensal na aba &quot;Visão Geral&quot;</li>
+                    <li>• Adicionar suas despesas mensais</li>
+                    <li>• O sistema calculará automaticamente sua capacidade de poupança</li>
                   </ul>
                   <div>
                     <button 

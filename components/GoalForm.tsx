@@ -47,7 +47,7 @@ export default function GoalForm({ onAddGoal }: GoalFormProps) {
         onClick={() => setIsFormVisible(true)}
         className="w-full inline-flex items-center justify-center rounded-md border border-dashed border-slate-600 px-4 py-8 text-sm font-medium text-slate-400 hover:border-blue-500 hover:text-blue-400 transition-colors"
       >
-        ➕ Nova Meta
+        + Nova Meta
       </button>
     )
   }
@@ -60,7 +60,7 @@ export default function GoalForm({ onAddGoal }: GoalFormProps) {
           onClick={() => setIsFormVisible(false)}
           className="text-slate-400 hover:text-white transition-colors"
         >
-          ✕
+          X
         </button>
       </div>
       

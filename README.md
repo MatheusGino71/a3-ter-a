@@ -8,13 +8,13 @@ Uma aplicação web interativa desenvolvida com Next.js 14+, React e TypeScript 
 
 > 📱 **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
 > 
-> 🚀 **Deploy automático** - Atualizado automaticamente via GitHub Actions
+> **Deploy automático** - Atualizado automaticamente via GitHub Actions
 
-## �🎯 Objetivo
+## Objetivo
 
 Responder à questão: **"Como a simulação de cenários financeiros pode influenciar a tomada de decisão e o comportamento de planejamento pessoal dos usuários?"**
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 - **Gerenciamento de Renda**: Insira e acompanhe sua renda mensal
 - **Controle de Despesas**: Adicione, edite e remova despesas com facilidade
@@ -26,7 +26,7 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 - **Histórico de Transações**: Visualize e filtre todas as suas transações
 - **Design Profissional**: Interface moderna com glassmorphism e tema escuro
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Framework**: Next.js 15+ (App Router)
 - **Linguagem**: TypeScript
@@ -65,7 +65,7 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 └── next.config.js
 ```
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Pré-requisitos
 
@@ -117,7 +117,7 @@ Para executar a build de produção:
 npm start
 ```
 
-## 📊 Como Usar
+## Como Usar
 
 1. **Acesse a Plataforma**: Clique em "Acessar Plataforma" na tela inicial
 
@@ -215,4 +215,4 @@ Este projeto foi desenvolvido para fins educacionais.
 
 ## 👨‍💻 Desenvolvimento
 
-Desenvolvido com ❤️ usando as melhores práticas de desenvolvimento web moderno, incluindo Next.js 15, TypeScript, Tailwind CSS e design system profissional.
+Desenvolvido usando as melhores práticas de desenvolvimento web moderno, incluindo Next.js 15, TypeScript, Tailwind CSS e design system profissional.

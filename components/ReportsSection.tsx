@@ -160,13 +160,13 @@ export default function ReportsSection({
     return (
       <div className={styles.reportsContainer}>
         <div className={styles.reportsHeader}>
-          <h2>📈 Relatórios e Análises</h2>
+          <h2>Relatórios e Análises</h2>
           <div className={styles.noDataMessage}>
             <p>Para gerar relatórios e análises, você precisa primeiro:</p>
             <ul>
-              <li>✅ Inserir sua renda mensal</li>
-              <li>✅ Adicionar suas despesas</li>
-              <li>✅ Criar metas financeiras (opcional)</li>
+              <li>• Inserir sua renda mensal</li>
+              <li>• Adicionar suas despesas</li>
+              <li>• Criar metas financeiras (opcional)</li>
             </ul>
             <p>Os relatórios serão gerados automaticamente com base nos seus dados.</p>
           </div>
@@ -178,14 +178,14 @@ export default function ReportsSection({
   return (
     <div className={styles.reportsContainer}>
       <div className={styles.reportsHeader}>
-        <h2>📈 Relatórios e Análises</h2>
+        <h2>Relatórios e Análises</h2>
         <p>Análise detalhada da sua situação financeira atual</p>
       </div>
 
       <div className={styles.reportsGrid}>
         {/* Financial Health Score */}
         <div className={styles.healthCard}>
-          <h3>💪 Saúde Financeira</h3>
+          <h3>Saúde Financeira</h3>
           <div className={styles.healthScore}>
             <div 
               className={styles.scoreCircle}
@@ -210,7 +210,7 @@ export default function ReportsSection({
 
         {/* Category Analysis */}
         <div className={styles.categoryCard}>
-          <h3>🏷️ Análise por Categoria</h3>
+          <h3>Análise por Categoria</h3>
           {categoryAnalysis.length > 0 ? (
             <div className={styles.categoryList}>
               {categoryAnalysis.map((item, index) => (
@@ -236,7 +236,7 @@ export default function ReportsSection({
 
         {/* Goals Analysis */}
         <div className={styles.goalsCard}>
-          <h3>🎯 Análise de Metas</h3>
+          <h3>Análise de Metas</h3>
           <div className={styles.goalsStats}>
             <div className={styles.statItem}>
               <span className={styles.statLabel}>Total de Metas</span>
@@ -259,7 +259,7 @@ export default function ReportsSection({
 
         {/* Monthly Projection */}
         <div className={styles.projectionCard}>
-          <h3>📊 Projeções</h3>
+          <h3>Projeções</h3>
           <div className={styles.projectionStats}>
             <div className={styles.projectionItem}>
               <span className={styles.projectionLabel}>Economia Mensal</span>
@@ -294,10 +294,10 @@ export default function ReportsSection({
               <div className={styles.recHeader}>
                 <h4>{rec.title}</h4>
                 <span className={styles.recType}>
-                  {rec.type === 'critical' && '🚨'}
-                  {rec.type === 'warning' && '⚠️'}
-                  {rec.type === 'info' && 'ℹ️'}
-                  {rec.type === 'success' && '✅'}
+                  {rec.type === 'critical' && '[!]'}
+                  {rec.type === 'warning' && '[!]'}
+                  {rec.type === 'info' && '[i]'}
+                  {rec.type === 'success' && '[OK]'}
                 </span>
               </div>
               <p className={styles.recMessage}>{rec.message}</p>
