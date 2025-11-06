@@ -4,9 +4,9 @@ Uma aplicação web interativa desenvolvida com Next.js 14+, React e TypeScript 
 
 > **Nexus** significa "conexão" ou "ponto de ligação". Nossa plataforma conecta suas decisões financeiras de hoje com seus objetivos futuros, criando uma ponte inteligente entre o presente e o amanhã que você deseja construir.
 
-## � Demonstração Online
+## Demonstração Online
 
-**🔗 [Acesse a Aplicação](https://matheusgino71.github.io/a3-ter-a/)**
+**[Acesse a Aplicação](https://matheusgino71.github.io/a3-ter-a/)**
 
 > 📱 **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
 > 
@@ -18,17 +18,17 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 
 ## Funcionalidades
 
-- **🔐 Sistema de Autenticação**: Login/cadastro com e-mail ou Google
-- **☁️ Sincronização na Nuvem**: Dados salvos no Firebase Firestore
-- **💰 Gerenciamento de Renda**: Insira e acompanhe sua renda mensal
-- **📊 Controle de Despesas**: Adicione, edite e remova despesas com facilidade
-- **💹 Resumo Financeiro em Tempo Real**: Visualize saldo mensal e taxa de economia instantaneamente
-- **📈 Gráfico Interativo**: Veja a distribuição de suas despesas em um gráfico de pizza
-- **🎯 Simulação de Cenários**: Experimente diferentes cenários financeiros e compare resultados
-- **🎯 Metas de Economia**: Defina e acompanhe metas financeiras
-- **🏖️ Projeção de Aposentadoria**: Calcule sua aposentadoria com base nos dados atuais
-- **📜 Histórico de Transações**: Visualize e filtre todas as suas transações
-- **🎨 Design Profissional**: Interface moderna com glassmorphism e tema escuro
+- **Sistema de Autenticação**: Login/cadastro com e-mail ou Google
+- **Sincronização na Nuvem**: Dados salvos no Firebase Firestore
+- **Gerenciamento de Renda**: Insira e acompanhe sua renda mensal
+- **Controle de Despesas**: Adicione, edite e remova despesas com facilidade
+- **Resumo Financeiro em Tempo Real**: Visualize saldo mensal e taxa de economia instantaneamente
+- **Gráfico Interativo**: Veja a distribuição de suas despesas em um gráfico de pizza
+- **Simulação de Cenários**: Experimente diferentes cenários financeiros e compare resultados
+- **Metas de Economia**: Defina e acompanhe metas financeiras
+- **Projeção de Aposentadoria**: Calcule sua aposentadoria com base nos dados atuais
+- **Histórico de Transações**: Visualize e filtre todas as suas transações
+- **Design Profissional**: Interface moderna com glassmorphism e tema escuro
 
 ## Tecnologias Utilizadas
 
@@ -41,7 +41,7 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 - **Gerenciamento de Estado**: React Hooks (useState, useMemo, useCallback)
 - **Persistência**: Firebase Firestore + localStorage (backup)
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 /
@@ -123,7 +123,7 @@ Para executar a build de produção:
 npm start
 ```
 
-## 🔥 Deploy no Firebase
+## Deploy no Firebase
 
 ### Configuração Inicial do Firebase
 
@@ -186,7 +186,7 @@ O Firebase já está configurado em `lib/firebase.ts` com:
 
 7. **Acompanhe Transações**: Na aba "Transações", veja todo o histórico
 
-## 🎨 Características da Interface
+## Características da Interface
 
 - **Design Moderno**: Interface profissional com glassmorphism
 - **Tema Escuro**: Palette de cores otimizada para conforto visual
@@ -195,7 +195,7 @@ O Firebase já está configurado em `lib/firebase.ts` com:
 - **Feedback Visual**: Cores semânticas para diferentes estados
 - **Animações Suaves**: Transições e hover effects profissionais
 
-## 🧩 Arquitetura dos Componentes
+## Arquitetura dos Componentes
 
 ### Dashboard Principal
 - **FinancialDashboard**: Orquestra todas as seções com navegação por abas
@@ -238,14 +238,14 @@ interface SavingsGoal {
 }
 ```
 
-## 📝 Scripts Disponíveis
+## Scripts Disponíveis
 
 - `npm run dev` - Servidor de desenvolvimento
 - `npm run build` - Build de produção
 - `npm start` - Execução em produção
 - `npm run lint` - Verificação de código
 
-## 🌟 Destaques Técnicos
+## Destaques Técnicos
 
 - **Performance**: Otimizada com `useMemo` e `useCallback`
 - **Persistência**: Dados salvos em localStorage
@@ -254,7 +254,7 @@ interface SavingsGoal {
 - **SEO**: Metadata otimizada com Next.js
 - **Fontes**: Otimização automática com `next/font/google`
 
-## 🎥 Demonstração
+## Demonstração
 
 A aplicação inclui:
 - Tela inicial com vídeo background profissional
@@ -262,10 +262,10 @@ A aplicação inclui:
 - Interface responsiva e moderna
 - Dados persistentes entre sessões
 
-## 📄 Licença
+## Licença
 
 Este projeto foi desenvolvido para fins educacionais.
 
-## 👨‍💻 Desenvolvimento
+## Desenvolvimento
 
 Desenvolvido usando as melhores práticas de desenvolvimento web moderno, incluindo Next.js 15, TypeScript, Tailwind CSS e design system profissional.
