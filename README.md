@@ -8,7 +8,7 @@ Uma aplicação web interativa desenvolvida com Next.js 14+, React e TypeScript 
 
 **[Acesse a Aplicação](https://matheusgino71.github.io/a3-ter-a/)**
 
-> 📱 **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
+> **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
 > 
 > **Deploy automático** - Atualizado automaticamente via GitHub Actions
 
