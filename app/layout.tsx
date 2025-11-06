@@ -5,8 +5,8 @@ import { Manrope } from 'next/font/google'
 const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '700', '800'] })
 
 export const metadata: Metadata = {
-  title: 'SimTechPro - Plataforma Avançada de Simulação Financeira',
-  description: 'Ferramenta profissional para simulação de cenários financeiros e planejamento pessoal',
+  title: 'Nexus - Conectando Suas Finanças ao Futuro',
+  description: 'Plataforma inteligente de simulação financeira que conecta suas decisões de hoje com seus objetivos futuros',
   icons: {
     icon: '/favicon.svg',
   },

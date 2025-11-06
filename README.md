@@ -1,6 +1,8 @@
-# SimTechPro - Simulador Financeiro Pessoal
+# Nexus - Conectando Suas Finanças ao Futuro
 
 Uma aplicação web interativa desenvolvida com Next.js 14+, React e TypeScript para ajudar usuários a compreender o impacto de suas decisões financeiras no equilíbrio orçamentário.
+
+> **Nexus** significa "conexão" ou "ponto de ligação". Nossa plataforma conecta suas decisões financeiras de hoje com seus objetivos futuros, criando uma ponte inteligente entre o presente e o amanhã que você deseja construir.
 
 ## � Demonstração Online
 
@@ -16,24 +18,28 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 
 ## Funcionalidades
 
-- **Gerenciamento de Renda**: Insira e acompanhe sua renda mensal
-- **Controle de Despesas**: Adicione, edite e remova despesas com facilidade
-- **Resumo Financeiro em Tempo Real**: Visualize saldo mensal e taxa de economia instantaneamente
-- **Gráfico Interativo**: Veja a distribuição de suas despesas em um gráfico de pizza
-- **Simulação de Cenários**: Experimente diferentes cenários financeiros e compare resultados
-- **Metas de Economia**: Defina e acompanhe metas financeiras
-- **Projeção de Aposentadoria**: Calcule sua aposentadoria com base nos dados atuais
-- **Histórico de Transações**: Visualize e filtre todas as suas transações
-- **Design Profissional**: Interface moderna com glassmorphism e tema escuro
+- **🔐 Sistema de Autenticação**: Login/cadastro com e-mail ou Google
+- **☁️ Sincronização na Nuvem**: Dados salvos no Firebase Firestore
+- **💰 Gerenciamento de Renda**: Insira e acompanhe sua renda mensal
+- **📊 Controle de Despesas**: Adicione, edite e remova despesas com facilidade
+- **💹 Resumo Financeiro em Tempo Real**: Visualize saldo mensal e taxa de economia instantaneamente
+- **📈 Gráfico Interativo**: Veja a distribuição de suas despesas em um gráfico de pizza
+- **🎯 Simulação de Cenários**: Experimente diferentes cenários financeiros e compare resultados
+- **🎯 Metas de Economia**: Defina e acompanhe metas financeiras
+- **🏖️ Projeção de Aposentadoria**: Calcule sua aposentadoria com base nos dados atuais
+- **📜 Histórico de Transações**: Visualize e filtre todas as suas transações
+- **🎨 Design Profissional**: Interface moderna com glassmorphism e tema escuro
 
 ## Tecnologias Utilizadas
 
 - **Framework**: Next.js 15+ (App Router)
 - **Linguagem**: TypeScript
+- **Autenticação**: Firebase Authentication
+- **Banco de Dados**: Firebase Firestore
 - **Biblioteca de Gráficos**: Chart.js + react-chartjs-2
 - **Estilização**: Tailwind CSS + CSS Modules
 - **Gerenciamento de Estado**: React Hooks (useState, useMemo, useCallback)
-- **Persistência**: localStorage
+- **Persistência**: Firebase Firestore + localStorage (backup)
 
 ## 📁 Estrutura do Projeto
 
@@ -116,6 +122,53 @@ Para executar a build de produção:
 ```bash
 npm start
 ```
+
+## 🔥 Deploy no Firebase
+
+### Configuração Inicial do Firebase
+
+1. **Instale o Firebase CLI globalmente**:
+   ```bash
+   npm install -g firebase-tools
+   ```
+
+2. **Faça login no Firebase**:
+   ```bash
+   firebase login
+   ```
+
+3. **O projeto já está configurado**, mas se precisar inicializar novamente:
+   ```bash
+   firebase init
+   ```
+   - Selecione "Hosting"
+   - Escolha o projeto "a3-terca"
+   - Use "out" como diretório público
+   - Configure como single-page app: Yes
+
+### Deploy da Aplicação
+
+Para fazer deploy da aplicação no Firebase Hosting:
+
+```bash
+npm run deploy
+```
+
+Ou manualmente:
+
+```bash
+npm run build
+firebase deploy
+```
+
+A aplicação será hospedada em: `https://a3-terca.web.app`
+
+### Configuração do Firebase no Projeto
+
+O Firebase já está configurado em `lib/firebase.ts` com:
+- **Authentication**: Login com e-mail/senha e Google
+- **Firestore**: Banco de dados para armazenar dados financeiros dos usuários
+- **Analytics**: Rastreamento de uso (opcional)
 
 ## Como Usar
 

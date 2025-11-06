@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configuração para export estático (GitHub Pages)
+  // Configuração para export estático (Firebase Hosting)
   output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/a3-ter-a' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/a3-ter-a/' : '',
+  // Remove basePath para Firebase (não é necessário)
+  // basePath: process.env.NODE_ENV === 'production' ? '/a3-ter-a' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/a3-ter-a/' : '',
   
   // Otimizações para desenvolvimento
   experimental: {

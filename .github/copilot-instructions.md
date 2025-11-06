@@ -1,8 +1,8 @@
-# Copilot Instructions - Financial Simulation App
+# Copilot Instructions - Nexus
 
-- [x] Verify that the copilot-instructions.md file in the .github directory is created.
+**Nexus - Conectando Suas Finanças ao Futuro**
 
-- [x] Clarify Project Requirements - Next.js 14+ TypeScript application for financial simulation
+Plataforma inteligente de simulação financeira Next.js 14+ TypeScript que conecta suas decisões de hoje com seus objetivos futuros.
 
 - [x] Scaffold the Project - Created complete project structure with all components
 

@@ -1,6 +1,9 @@
 'use client'
 
 import { useState, useMemo, useEffect, useCallback } from 'react'
+import { signOut } from 'firebase/auth'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { auth, db } from '@/lib/firebase'
 import IncomeInput from './IncomeInput'
 import ExpenseForm from './ExpenseForm'
 import ExpenseList from './ExpenseList'
@@ -47,39 +50,71 @@ interface FinancialData {
 
 interface FinancialDashboardProps {
   onBackToHome?: () => void
+  userId: string
 }
 
-export default function FinancialDashboard({ onBackToHome }: FinancialDashboardProps) {
+export default function FinancialDashboard({ onBackToHome, userId }: FinancialDashboardProps) {
   const [income, setIncome] = useState<number>(0)
   const [expenses, setExpenses] = useState<Expense[]>([])
   const [goals, setGoals] = useState<SavingsGoal[]>([])
   const [activeTab, setActiveTab] = useState<'overview' | 'goals' | 'reports' | 'retirement' | 'transactions' | 'finance'>('overview')
+  const [userName, setUserName] = useState<string>('')
+  const [loading, setLoading] = useState(true)
 
-  // Persistência de dados no localStorage
+  // Carregar dados do Firestore
   useEffect(() => {
-    const savedData = localStorage.getItem('financialData')
-    if (savedData) {
+    const loadUserData = async () => {
       try {
-        const data: FinancialData = JSON.parse(savedData)
-        setIncome(data.income || 0)
-        setExpenses(data.expenses || [])
-        setGoals(data.goals || [])
+        const userDoc = await getDoc(doc(db, 'users', userId))
+        if (userDoc.exists()) {
+          const data = userDoc.data()
+          setIncome(data.income || 0)
+          setExpenses(data.expenses || [])
+          setGoals(data.goals || [])
+          setUserName(data.name || auth.currentUser?.displayName || 'Usuário')
+        }
       } catch (error) {
-        console.error('Erro ao carregar dados salvos:', error)
+        console.error('Erro ao carregar dados:', error)
+      } finally {
+        setLoading(false)
       }
     }
-  }, [])
 
-  // Salvar dados automaticamente
+    loadUserData()
+  }, [userId])
+
+  // Salvar dados no Firestore sempre que houver mudanças
   useEffect(() => {
-    const data: FinancialData = {
-      income,
-      expenses,
-      goals,
-      lastUpdated: new Date().toISOString(),
+    if (!loading && userId) {
+      const saveData = async () => {
+        try {
+          await setDoc(doc(db, 'users', userId), {
+            income,
+            expenses,
+            goals,
+            lastUpdated: new Date().toISOString()
+          }, { merge: true })
+        } catch (error) {
+          console.error('Erro ao salvar dados:', error)
+        }
+      }
+
+      saveData()
     }
-    localStorage.setItem('financialData', JSON.stringify(data))
-  }, [income, expenses, goals])
+  }, [income, expenses, goals, userId, loading])
+
+  // Persistência local como backup (localStorage)
+  useEffect(() => {
+    if (!loading) {
+      const data: FinancialData = {
+        income,
+        expenses,
+        goals,
+        lastUpdated: new Date().toISOString(),
+      }
+      localStorage.setItem(`financialData_${userId}`, JSON.stringify(data))
+    }
+  }, [income, expenses, goals, userId, loading])
 
   const summary = useMemo<FinancialSummary>(() => {
     const totalExpenses = expenses.reduce((sum, expense) => sum + expense.amount, 0)
@@ -169,7 +204,7 @@ export default function FinancialDashboard({ onBackToHome }: FinancialDashboardP
               <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
             </svg>
           </div>
-          <h2 className="text-xl font-bold text-white">SimTechPro</h2>
+          <h2 className="text-xl font-bold text-white">Nexus</h2>
         </div>
         <nav className="hidden md:flex items-center gap-8">
           <button 
@@ -210,19 +245,28 @@ export default function FinancialDashboard({ onBackToHome }: FinancialDashboardP
           </button>
         </nav>
         <div className="flex items-center gap-4">
-          {onBackToHome && (
-            <button 
-              onClick={onBackToHome}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 rounded-md transition-colors"
-              title="Voltar ao Início"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="m12 19-7-7 7-7"/>
-                <path d="M19 12H5"/>
-              </svg>
-              Voltar ao Início
-            </button>
-          )}
+          <div className="text-slate-400 text-sm hidden md:block">
+            Olá, <span className="text-white font-semibold">{userName}</span>
+          </div>
+          <button 
+            onClick={async () => {
+              try {
+                await signOut(auth)
+                if (onBackToHome) onBackToHome()
+              } catch (error) {
+                console.error('Erro ao fazer logout:', error)
+              }
+            }}
+            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 rounded-md transition-colors"
+            title="Sair"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            Sair
+          </button>
           <button 
             onClick={exportData}
             className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 transition-colors"
