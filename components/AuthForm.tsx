@@ -66,7 +66,25 @@ export default function AuthForm({ onSuccess, onBackToHome }: AuthFormProps) {
         await setDoc(doc(db, 'users', userCredential.user.uid), {
           name,
           email,
+          displayName: name,
+          phoneNumber: '',
+          occupation: '',
+          monthlyIncome: 0,
+          financialGoal: '',
+          riskProfile: 'moderado',
           createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          // Preferências padrão
+          theme: 'dark',
+          currency: 'BRL',
+          language: 'pt-BR',
+          notifications: true,
+          emailNotifications: false,
+          monthlyReports: true,
+          defaultView: 'overview',
+          chartType: 'bar',
+          avatar: 'default',
+          // Dados financeiros
           income: 0,
           expenses: [],
           goals: []
@@ -119,7 +137,25 @@ export default function AuthForm({ onSuccess, onBackToHome }: AuthFormProps) {
       await setDoc(doc(db, 'users', userCredential.user.uid), {
         name: userCredential.user.displayName || 'Usuário',
         email: userCredential.user.email,
+        displayName: userCredential.user.displayName || 'Usuário',
+        phoneNumber: '',
+        occupation: '',
+        monthlyIncome: 0,
+        financialGoal: '',
+        riskProfile: 'moderado',
         createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        // Preferências padrão
+        theme: 'dark',
+        currency: 'BRL',
+        language: 'pt-BR',
+        notifications: true,
+        emailNotifications: false,
+        monthlyReports: true,
+        defaultView: 'overview',
+        chartType: 'bar',
+        avatar: 'default',
+        // Dados financeiros
         income: 0,
         expenses: [],
         goals: []

@@ -16,6 +16,8 @@ import ReportsSection from './ReportsSection'
 import RetirementProjection from './RetirementProjection'
 import TransactionsSection from './TransactionsSection'
 import FinanceSection from './FinanceSection'
+import AnalyticsDashboard from './AnalyticsDashboard'
+import UserProfile from './UserProfile'
 import styles from './FinancialDashboard.module.css'
 
 export interface Expense {
@@ -57,9 +59,11 @@ export default function FinancialDashboard({ onBackToHome, userId }: FinancialDa
   const [income, setIncome] = useState<number>(0)
   const [expenses, setExpenses] = useState<Expense[]>([])
   const [goals, setGoals] = useState<SavingsGoal[]>([])
-  const [activeTab, setActiveTab] = useState<'overview' | 'goals' | 'reports' | 'retirement' | 'transactions' | 'finance'>('overview')
+  const [activeTab, setActiveTab] = useState<'overview' | 'goals' | 'reports' | 'retirement' | 'transactions' | 'finance' | 'analytics'>('overview')
   const [userName, setUserName] = useState<string>('')
   const [loading, setLoading] = useState(true)
+  const [showProfile, setShowProfile] = useState(false)
+  const [userAvatar, setUserAvatar] = useState<'default' | 'business' | 'casual'>('default')
 
   // Carregar dados do Firestore
   useEffect(() => {
@@ -72,6 +76,7 @@ export default function FinancialDashboard({ onBackToHome, userId }: FinancialDa
           setExpenses(data.expenses || [])
           setGoals(data.goals || [])
           setUserName(data.name || auth.currentUser?.displayName || 'Usuário')
+          setUserAvatar(data.avatar || 'default')
         }
       } catch (error) {
         console.error('Erro ao carregar dados:', error)
@@ -194,6 +199,34 @@ export default function FinancialDashboard({ onBackToHome, userId }: FinancialDa
     }
   }, [])
 
+  // Renderizar avatares
+  const renderAvatar = (type: string, size: number = 16) => {
+    const avatars = {
+      default: (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      ),
+      business: (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+          <line x1="12" y1="16" x2="12" y2="16.01"/>
+        </svg>
+      ),
+      casual: (
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+          <line x1="9" y1="9" x2="9.01" y2="9"/>
+          <line x1="15" y1="9" x2="15.01" y2="9"/>
+        </svg>
+      )
+    }
+    return avatars[type as keyof typeof avatars] || avatars.default
+  }
+
   return (
     <div className="flex min-h-screen w-full flex-col">
       {/* Header Profissional */}
@@ -243,11 +276,28 @@ export default function FinancialDashboard({ onBackToHome, userId }: FinancialDa
           >
             Finanças
           </button>
+          <button 
+            className={`text-sm font-medium transition-colors ${activeTab === 'analytics' ? 'text-blue-400' : 'text-slate-400 hover:text-blue-400'}`}
+            onClick={() => setActiveTab('analytics')}
+          >
+            Analytics
+          </button>
         </nav>
         <div className="flex items-center gap-4">
           <div className="text-slate-400 text-sm hidden md:block">
-            Olá, <span className="text-white font-semibold">{userName}</span>
+            Olá, <span className="text-white font-semibold">{userName || 'Usuário'}</span>
           </div>
+          <button 
+            onClick={exportData}
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 transition-colors"
+            title="Exportar Dados"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-400">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7,10 12,15 17,10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </button>
           <button 
             onClick={async () => {
               try {
@@ -268,19 +318,14 @@ export default function FinancialDashboard({ onBackToHome, userId }: FinancialDa
             Sair
           </button>
           <button 
-            onClick={exportData}
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 transition-colors"
-            title="Exportar Dados"
+            onClick={() => setShowProfile(true)}
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all"
+            title={`Perfil de ${userName || 'Usuário'}`}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-400">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7,10 12,15 17,10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
+            <div className="text-white">
+              {renderAvatar(userAvatar, 20)}
+            </div>
           </button>
-          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-            <span className="text-white font-semibold text-sm">U</span>
-          </div>
         </div>
       </header>
 
@@ -457,8 +502,27 @@ export default function FinancialDashboard({ onBackToHome, userId }: FinancialDa
               <FinanceSection />
             </>
           )}
+
+          {/* Analytics - Painel de Controle Avançado */}
+          {activeTab === 'analytics' && (
+            <>
+              <AnalyticsDashboard 
+                income={income}
+                expenses={expenses}
+                goals={goals}
+              />
+            </>
+          )}
         </div>
       </main>
+
+      {/* Modal de Perfil */}
+      {showProfile && auth.currentUser && (
+        <UserProfile 
+          user={auth.currentUser} 
+          onClose={() => setShowProfile(false)} 
+        />
+      )}
     </div>
   )
 }

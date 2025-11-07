@@ -132,7 +132,7 @@ export default function RetirementProjection({
         borderWidth: 1,
         callbacks: {
           label: function(context: any) {
-            return `Valor: $${context.raw.toLocaleString()}`
+            return `Valor: R$ ${context.raw.toLocaleString()}`
           }
         }
       }
@@ -153,7 +153,7 @@ export default function RetirementProjection({
         ticks: {
           color: '#9ca3af',
           callback: function(value: any) {
-            return '$' + (value / 1000) + 'K'
+            return 'R$ ' + (value / 1000) + 'K'
           }
         }
       }
@@ -168,8 +168,8 @@ export default function RetirementProjection({
     <div className={styles.container}>
       <div className={styles.header}>
         <div>
-          <h1 className={styles.title}>Scenario Outcome: Retirement Savings Projection</h1>
-          <p className={styles.subtitle}>Key Metrics</p>
+          <h1 className={styles.title}>Resultado do Cenário: Projeção de Poupança para Aposentadoria</h1>
+          <p className={styles.subtitle}>Métricas Principais</p>
         </div>
         <div className={styles.scenarioSelector}>
           {Object.keys(SCENARIO_RETURNS).map((scenario) => (
@@ -178,7 +178,7 @@ export default function RetirementProjection({
               className={`${styles.scenarioButton} ${selectedScenario === scenario ? styles.active : ''}`}
               onClick={() => setSelectedScenario(scenario as any)}
             >
-              {scenario.charAt(0).toUpperCase() + scenario.slice(1)}
+              {scenario === 'conservative' ? 'Conservador' : scenario === 'moderate' ? 'Moderado' : 'Arrojado'}
             </button>
           ))}
         </div>
@@ -234,25 +234,25 @@ export default function RetirementProjection({
 
       <div className={styles.metricsGrid}>
         <div className={styles.metric}>
-          <div className={styles.metricLabel}>Savings Goal</div>
-          <div className={styles.metricValue}>${finalBalance.toLocaleString()}</div>
+          <div className={styles.metricLabel}>Meta de Poupança</div>
+          <div className={styles.metricValue}>R$ {finalBalance.toLocaleString()}</div>
         </div>
         <div className={styles.metric}>
-          <div className={styles.metricLabel}>Years to Retirement</div>
+          <div className={styles.metricLabel}>Anos até Aposentadoria</div>
           <div className={styles.metricValue}>{yearsToRetirement}</div>
         </div>
         <div className={styles.metric}>
-          <div className={styles.metricLabel}>Current Net Worth</div>
-          <div className={styles.metricValue}>${currentSavings.toLocaleString()}</div>
+          <div className={styles.metricLabel}>Patrimônio Atual</div>
+          <div className={styles.metricValue}>R$ {currentSavings.toLocaleString()}</div>
         </div>
         <div className={styles.metric}>
-          <div className={styles.metricLabel}>Savings Over Time</div>
-          <div className={styles.metricValue}>${savingsOverTime.toLocaleString()}</div>
+          <div className={styles.metricLabel}>Poupança ao Longo do Tempo</div>
+          <div className={styles.metricValue}>R$ {savingsOverTime.toLocaleString()}</div>
         </div>
       </div>
 
       <div className={styles.chartContainer}>
-        <h3 className={styles.chartTitle}>Savings Over Time</h3>
+        <h3 className={styles.chartTitle}>Poupança ao Longo do Tempo</h3>
         <div className={styles.chartWrapper}>
           <Line data={chartData} options={chartOptions} />
         </div>
@@ -261,16 +261,16 @@ export default function RetirementProjection({
       <div className={styles.bottomSection}>
         <div className={styles.incomeExpenses}>
           <div className={styles.incomeExpensesGrid}>
-            <div className={styles.incomeExpenseCard}>
-              <div className={styles.cardLabel}>Income and Expenses</div>
+              <div className={styles.incomeExpenseCard}>
+              <div className={styles.cardLabel}>Renda e Despesas</div>
               <div className={styles.cardValueGrid}>
                 <div>
-                  <div className={styles.cardValue}>${(income * 12).toLocaleString()}</div>
-                  <div className={styles.cardSubLabel}>Annual Income</div>
+                  <div className={styles.cardValue}>R$ {(income * 12).toLocaleString()}</div>
+                  <div className={styles.cardSubLabel}>Renda Anual</div>
                 </div>
                 <div>
-                  <div className={styles.cardValue}>${(expenses * 12).toLocaleString()}</div>
-                  <div className={styles.cardSubLabel}>Annual Expenses</div>
+                  <div className={styles.cardValue}>R$ {(expenses * 12).toLocaleString()}</div>
+                  <div className={styles.cardSubLabel}>Despesas Anuais</div>
                 </div>
               </div>
             </div>
@@ -278,28 +278,28 @@ export default function RetirementProjection({
         </div>
 
         <div className={styles.scenarioTable}>
-          <h3 className={styles.tableTitle}>Scenario Breakdown</h3>
+          <h3 className={styles.tableTitle}>Detalhamento do Cenário</h3>
           <div className={styles.tableContainer}>
             <table className={styles.table}>
               <thead>
                 <tr>
-                  <th>Year</th>
-                  <th>Balance</th>
-                  <th>Monthly Savings</th>
-                  <th>Annual Return</th>
-                  <th>Cumulative Returns</th>
-                  <th>Net Worth</th>
+                  <th>Ano</th>
+                  <th>Saldo</th>
+                  <th>Poupança Mensal</th>
+                  <th>Retorno Anual</th>
+                  <th>Retornos Acumulados</th>
+                  <th>Patrimônio Líquido</th>
                 </tr>
               </thead>
               <tbody>
                 {projectionData.slice(0, 10).map((data, index) => (
                   <tr key={data.year}>
                     <td>{data.year}</td>
-                    <td>${data.balance.toLocaleString()}</td>
-                    <td>${monthlyContribution.toLocaleString()}</td>
+                    <td>R$ {data.balance.toLocaleString()}</td>
+                    <td>R$ {monthlyContribution.toLocaleString()}</td>
                     <td>{(SCENARIO_RETURNS[selectedScenario] * 100).toFixed(1)}%</td>
-                    <td>${data.compoundReturns.toLocaleString()}</td>
-                    <td>${data.netWorth.toLocaleString()}</td>
+                    <td>R$ {data.compoundReturns.toLocaleString()}</td>
+                    <td>R$ {data.netWorth.toLocaleString()}</td>
                   </tr>
                 ))}
               </tbody>

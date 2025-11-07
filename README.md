@@ -4,11 +4,11 @@ Uma aplicação web interativa desenvolvida com Next.js 14+, React e TypeScript 
 
 > **Nexus** significa "conexão" ou "ponto de ligação". Nossa plataforma conecta suas decisões financeiras de hoje com seus objetivos futuros, criando uma ponte inteligente entre o presente e o amanhã que você deseja construir.
 
-## Demonstração Online
+## � Demonstração Online
 
-**[Acesse a Aplicação](https://matheusgino71.github.io/a3-ter-a/)**
+**🔗 [Acesse a Aplicação](https://matheusgino71.github.io/a3-ter-a/)**
 
-> **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
+> 📱 **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
 > 
 > **Deploy automático** - Atualizado automaticamente via GitHub Actions
 
@@ -18,30 +18,40 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 
 ## Funcionalidades
 
-- **Sistema de Autenticação**: Login/cadastro com e-mail ou Google
-- **Sincronização na Nuvem**: Dados salvos no Firebase Firestore
-- **Gerenciamento de Renda**: Insira e acompanhe sua renda mensal
-- **Controle de Despesas**: Adicione, edite e remova despesas com facilidade
-- **Resumo Financeiro em Tempo Real**: Visualize saldo mensal e taxa de economia instantaneamente
-- **Gráfico Interativo**: Veja a distribuição de suas despesas em um gráfico de pizza
-- **Simulação de Cenários**: Experimente diferentes cenários financeiros e compare resultados
-- **Metas de Economia**: Defina e acompanhe metas financeiras
-- **Projeção de Aposentadoria**: Calcule sua aposentadoria com base nos dados atuais
-- **Histórico de Transações**: Visualize e filtre todas as suas transações
-- **Design Profissional**: Interface moderna com glassmorphism e tema escuro
+- **🔐 Sistema de Autenticação**: Login/cadastro com e-mail ou Google
+- **👤 Perfil de Usuário Completo**: 
+  - Dados pessoais (nome, email, telefone, ocupação)
+  - Perfil financeiro (renda mensal, objetivo, perfil de risco)
+  - Segurança (alteração de senha)
+- **☁️ Sincronização na Nuvem**: Todos os dados salvos automaticamente no Firebase Firestore
+- **💰 Gerenciamento de Renda**: Insira e acompanhe sua renda mensal
+- **📊 Controle de Despesas**: Adicione, edite e remova despesas com categorias
+- **💹 Resumo Financeiro em Tempo Real**: Visualize saldo mensal e taxa de economia instantaneamente
+- **📈 Gráficos Interativos**: Visualize a distribuição de suas despesas em gráficos profissionais
+- **📊 Analytics Dashboard**: Painel estilo Power BI com 7+ tipos de gráficos interativos
+- **🎯 Simulação de Cenários**: Experimente diferentes cenários financeiros e compare resultados com gráficos
+- **🎯 Metas de Economia**: Defina e acompanhe metas financeiras com progresso visual
+- **🏖️ Projeção de Aposentadoria**: Calcule sua aposentadoria com base nos dados atuais
+- **📜 Histórico de Transações**: Visualize e filtre todas as suas transações
+- **📤 Exportação de Dados**: Exporte seus dados em formato CSV
+- **🎨 Design Profissional**: Interface moderna com glassmorphism e tema escuro
 
 ## Tecnologias Utilizadas
 
 - **Framework**: Next.js 15+ (App Router)
 - **Linguagem**: TypeScript
-- **Autenticação**: Firebase Authentication
-- **Banco de Dados**: Firebase Firestore
-- **Biblioteca de Gráficos**: Chart.js + react-chartjs-2
+- **Autenticação**: Firebase Authentication (Email/Password + Google)
+- **Banco de Dados**: Firebase Firestore (NoSQL em tempo real)
+- **Analytics**: Firebase Analytics
+- **Biblioteca de Gráficos**: 
+  - Chart.js 4.4+ + react-chartjs-2
+  - Recharts 2.x (Analytics Dashboard)
 - **Estilização**: Tailwind CSS + CSS Modules
-- **Gerenciamento de Estado**: React Hooks (useState, useMemo, useCallback)
-- **Persistência**: Firebase Firestore + localStorage (backup)
+- **Gerenciamento de Estado**: React Hooks (useState, useMemo, useCallback, useEffect)
+- **Persistência**: Firebase Firestore com sincronização automática
+- **Deployment**: Firebase Hosting
 
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```
 /
@@ -50,18 +60,24 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 │   ├── page.tsx            # Página inicial com vídeo background
 │   └── page.module.css     # Estilos da página
 ├── components/
+│   ├── AuthForm.tsx                   # Autenticação (login/cadastro)
+│   ├── UserProfile.tsx                # Perfil do usuário (NOVO)
 │   ├── FinancialDashboard.tsx         # Dashboard principal
+│   ├── AnalyticsDashboard.tsx         # Analytics estilo Power BI (NOVO)
 │   ├── IncomeInput.tsx                # Input de renda
 │   ├── ExpenseForm.tsx                # Formulário de despesas
 │   ├── ExpenseList.tsx                # Lista de despesas
 │   ├── ExpenseChart.tsx               # Gráfico de despesas
 │   ├── Summary.tsx                    # Resumo financeiro
-│   ├── ScenarioSimulator.tsx          # Simulador de cenários
+│   ├── ScenarioSimulator.tsx          # Simulador de cenários com gráficos
 │   ├── GoalForm.tsx                   # Formulário de metas
 │   ├── GoalsList.tsx                  # Lista de metas
 │   ├── ReportsSection.tsx             # Seção de relatórios
 │   ├── RetirementProjection.tsx       # Projeção de aposentadoria
-│   └── TransactionsSection.tsx        # Histórico de transações
+│   ├── TransactionsSection.tsx        # Histórico de transações
+│   └── VideoBackground.tsx            # Componente de vídeo background
+├── lib/
+│   └── firebase.ts                    # Configuração do Firebase
 ├── styles/
 │   └── globals.css          # Estilos globais
 ├── public/
@@ -123,7 +139,7 @@ Para executar a build de produção:
 npm start
 ```
 
-## Deploy no Firebase
+## 🔥 Deploy no Firebase
 
 ### Configuração Inicial do Firebase
 
@@ -174,19 +190,31 @@ O Firebase já está configurado em `lib/firebase.ts` com:
 
 1. **Acesse a Plataforma**: Clique em "Acessar Plataforma" na tela inicial
 
-2. **Adicione sua Renda**: Na aba "Dashboard", insira sua renda mensal
+2. **Faça Login ou Cadastre-se**: Use e-mail/senha ou login rápido com Google
 
-3. **Registre Despesas**: Use o formulário para adicionar despesas com categoria
+3. **Configure seu Perfil**: 
+   - Clique no botão "Perfil" no header
+   - Preencha dados pessoais (nome, email, telefone, ocupação)
+   - Configure perfil financeiro (renda mensal, objetivo, perfil de risco)
+   - Todos os dados são salvos automaticamente no Firebase
 
-4. **Defina Metas**: Na aba "Metas", crie objetivos de economia
+4. **Adicione sua Renda**: Na aba "Dashboard", insira sua renda mensal
 
-5. **Visualize Relatórios**: Acesse a aba "Relatórios" para análises detalhadas
+5. **Registre Despesas**: Use o formulário para adicionar despesas com categorias
 
-6. **Projete sua Aposentadoria**: Use o "Simulador" para planejar o futuro
+6. **Defina Metas**: Na aba "Metas", crie objetivos de economia
 
-7. **Acompanhe Transações**: Na aba "Transações", veja todo o histórico
+7. **Visualize Analytics**: Acesse a aba "Analytics" para ver gráficos avançados estilo Power BI
 
-## Características da Interface
+8. **Simule Cenários**: Na aba "Simulador", experimente diferentes situações financeiras
+
+9. **Projete sua Aposentadoria**: Use o "Simulador" para planejar o futuro
+
+10. **Acompanhe Transações**: Na aba "Transações", veja todo o histórico
+
+11. **Exporte Dados**: Use o botão de exportar para baixar seus dados em CSV
+
+## 🎨 Características da Interface
 
 - **Design Moderno**: Interface profissional com glassmorphism
 - **Tema Escuro**: Palette de cores otimizada para conforto visual
@@ -195,7 +223,7 @@ O Firebase já está configurado em `lib/firebase.ts` com:
 - **Feedback Visual**: Cores semânticas para diferentes estados
 - **Animações Suaves**: Transições e hover effects profissionais
 
-## Arquitetura dos Componentes
+## 🧩 Arquitetura dos Componentes
 
 ### Dashboard Principal
 - **FinancialDashboard**: Orquestra todas as seções com navegação por abas
@@ -236,16 +264,77 @@ interface SavingsGoal {
   deadline: string
   createdAt: string
 }
+
+interface UserProfileData {
+  displayName: string
+  email: string
+  phoneNumber: string
+  occupation: string
+  monthlyIncome: number
+  financialGoal: string
+  riskProfile: 'conservador' | 'moderado' | 'arrojado'
+  createdAt: string
+  updatedAt: string
+}
 ```
 
-## Scripts Disponíveis
+## 🔥 Sistema de Perfil de Usuário
+
+### Funcionalidades do Perfil
+
+O sistema de perfil permite que cada usuário:
+
+1. **Dados Pessoais**:
+   - Nome completo
+   - Email (sincronizado com Firebase Auth)
+   - Telefone
+   - Ocupação
+
+2. **Perfil Financeiro**:
+   - Renda mensal
+   - Objetivo financeiro principal
+   - Perfil de risco (Conservador, Moderado, Arrojado)
+
+3. **Segurança**:
+   - Alteração de senha
+   - Validação de senha forte
+
+### Armazenamento de Dados
+
+Todos os dados do usuário são armazenados no Firebase Firestore com a seguinte estrutura:
+
+```
+users/
+  └── {userId}/
+      ├── displayName: string
+      ├── email: string
+      ├── phoneNumber: string
+      ├── occupation: string
+      ├── monthlyIncome: number
+      ├── financialGoal: string
+      ├── riskProfile: string
+      ├── createdAt: timestamp
+      ├── updatedAt: timestamp
+      ├── income: number
+      ├── expenses: array
+      └── goals: array
+```
+
+### Sincronização Automática
+
+- ✅ Dados salvos em tempo real no Firebase
+- ✅ Sincronização entre dispositivos
+- ✅ Backup automático na nuvem
+- ✅ Isolamento de dados por usuário (cada usuário vê apenas seus dados)
+
+## 📝 Scripts Disponíveis
 
 - `npm run dev` - Servidor de desenvolvimento
 - `npm run build` - Build de produção
 - `npm start` - Execução em produção
 - `npm run lint` - Verificação de código
 
-## Destaques Técnicos
+## 🌟 Destaques Técnicos
 
 - **Performance**: Otimizada com `useMemo` e `useCallback`
 - **Persistência**: Dados salvos em localStorage
@@ -254,7 +343,7 @@ interface SavingsGoal {
 - **SEO**: Metadata otimizada com Next.js
 - **Fontes**: Otimização automática com `next/font/google`
 
-## Demonstração
+## 🎥 Demonstração
 
 A aplicação inclui:
 - Tela inicial com vídeo background profissional
@@ -262,10 +351,10 @@ A aplicação inclui:
 - Interface responsiva e moderna
 - Dados persistentes entre sessões
 
-## Licença
+## 📄 Licença
 
 Este projeto foi desenvolvido para fins educacionais.
 
-## Desenvolvimento
+## 👨‍💻 Desenvolvimento
 
 Desenvolvido usando as melhores práticas de desenvolvimento web moderno, incluindo Next.js 15, TypeScript, Tailwind CSS e design system profissional.
