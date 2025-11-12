@@ -80,7 +80,7 @@
 
 .statLabel {
   font-size: 0.875rem;
-  color: #9ca3af;
+  color: #d1d5db;
   margin-bottom: 0.25rem;
   font-weight: 500;
 }
@@ -89,6 +89,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
+  color: #ffffff;
 }
 
 .statValue.positive {
@@ -147,7 +148,7 @@
 }
 
 .panelHeader h3 {
-  color: #e5e7eb;
+  color: #f3f4f6;
   margin: 0;
   font-size: 1.25rem;
   font-weight: 700;
@@ -167,7 +168,7 @@
 .sectionHeader h4 {
   font-size: 1.1rem;
   margin: 0;
-  color: #e5e7eb;
+  color: #f3f4f6;
   font-weight: 600;
 }
 
@@ -179,25 +180,32 @@
   display: block;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
+  color: #f3f4f6;
   font-size: 0.95rem;
 }
 
 .input {
   width: 100%;
   padding: 0.875rem 1.25rem;
-  border: 2px solid rgba(99, 102, 241, 0.2);
+  border: 2px solid rgba(99, 102, 241, 0.3);
   border-radius: 10px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: rgba(17, 24, 39, 0.5);
-  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-weight: 500;
   backdrop-filter: blur(10px);
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
 }
 
 .input:focus {
   outline: none;
   border-color: #6366f1;
+  background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
   background: rgba(17, 24, 39, 0.7);
 }
@@ -266,12 +274,13 @@
 
 .emptyText {
   text-align: center;
-  color: #9ca3af;
+  color: #d1d5db;
   font-style: italic;
   padding: 2rem;
-  background: rgba(31, 41, 55, 0.3);
+  background: rgba(59, 130, 246, 0.1);
   border-radius: 8px;
-  border: 1px dashed rgba(99, 102, 241, 0.3);
+  border: 2px dashed rgba(99, 102, 241, 0.4);
+  font-weight: 500;
 }
 
 .expenseItem {
@@ -279,41 +288,41 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem;
-  background: rgba(31, 41, 55, 0.5);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: rgba(55, 65, 81, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 10px;
   transition: all 0.3s ease;
 }
 
 .expenseItem:hover {
-  background: rgba(31, 41, 55, 0.7);
-  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(75, 85, 99, 0.8);
+  border-color: rgba(99, 102, 241, 0.5);
   transform: translateX(4px);
 }
 
 .expenseName {
   flex: 1;
   font-weight: 500;
-  color: #e5e7eb;
+  color: #ffffff;
   font-size: 0.95rem;
 }
 
 .expenseInput {
   width: 120px;
   padding: 0.5rem;
-  border: 2px solid rgba(99, 102, 241, 0.2);
+  border: 2px solid rgba(99, 102, 241, 0.3);
   border-radius: 6px;
   font-size: 0.95rem;
-  background: rgba(17, 24, 39, 0.6);
-  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   font-weight: 600;
 }
 
 .expenseInput:focus {
   outline: none;
   border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-  background: rgba(17, 24, 39, 0.8);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .removeButton {
@@ -387,7 +396,7 @@
 
 .comparisonLabel {
   font-weight: 600;
-  color: var(--text-primary);
+  color: #f3f4f6;
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -395,6 +404,7 @@
 .comparisonValues {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -410,20 +420,31 @@
 
 .valueLabel {
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: #d1d5db;
   font-weight: 500;
 }
 
 .value {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #ffffff;
+}
+
+.value.positive {
+  color: #10b981;
+}
+
+.value.negative {
+  color: #ef4444;
 }
 
 .arrow {
   font-size: 1.5rem;
-  color: var(--primary-color);
+  color: #ffffff;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .diff {
@@ -435,14 +456,14 @@
   text-align: center;
 }
 
-.positive {
-  color: var(--success-color);
-  background: rgba(16, 185, 129, 0.1);
+.diff.positive {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.2);
 }
 
-.negative {
-  color: var(--danger-color);
-  background: rgba(239, 68, 68, 0.1);
+.diff.negative {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.2);
 }
 
 .insights {
@@ -467,7 +488,7 @@
 
 .insightsHeader h4 {
   margin: 0;
-  color: #e5e7eb;
+  color: #f3f4f6;
   font-weight: 700;
 }
 
@@ -528,14 +549,14 @@
 }
 
 .chartHeader h3 {
-  color: #e5e7eb;
+  color: #f3f4f6;
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
 }
 
 .chartHeader p {
-  color: #9ca3af;
+  color: #d1d5db;
   font-size: 0.875rem;
   margin: 0;
 }
@@ -597,4 +618,29 @@
   .chartContainer {
     height: 250px;
   }
+}
+
+/* Info Card */
+.infoCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));
+  border-radius: 12px;
+  border: 2px dashed rgba(99, 102, 241, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.infoCard svg {
+  flex-shrink: 0;
+  color: #60a5fa;
+  margin-top: 0.25rem;
+}
+
+.infoCard p {
+  margin: 0;
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }

@@ -39,8 +39,8 @@ export default function ScenarioSimulator({
   currentExpenses,
   currentSummary,
 }: ScenarioSimulatorProps) {
-  const [simulatedIncome, setSimulatedIncome] = useState<number>(currentIncome)
-  const [simulatedExpenses, setSimulatedExpenses] = useState<Expense[]>([...currentExpenses])
+  const [simulatedIncome, setSimulatedIncome] = useState<number>(0)
+  const [simulatedExpenses, setSimulatedExpenses] = useState<Expense[]>([])
   const [newExpenseName, setNewExpenseName] = useState('')
   const [newExpenseAmount, setNewExpenseAmount] = useState('')
 
@@ -332,6 +332,7 @@ export default function ScenarioSimulator({
               value={simulatedIncome || ''}
               onChange={(e) => setSimulatedIncome(parseFloat(e.target.value) || 0)}
               className={styles.input}
+              placeholder="Digite sua renda mensal simulada"
             />
           </div>
 
@@ -380,7 +381,7 @@ export default function ScenarioSimulator({
           </div>
           <div className={styles.expensesList}>
             {simulatedExpenses.length === 0 ? (
-              <p className={styles.emptyText}>Nenhuma despesa</p>
+              <p className={styles.emptyText}>Adicione despesas para simular cenários financeiros</p>
             ) : (
               simulatedExpenses.map((expense) => (
                 <div key={expense.id} className={styles.expenseItem}>
@@ -423,6 +424,17 @@ export default function ScenarioSimulator({
             </svg>
             <h3>Comparação de Resultados</h3>
           </div>
+
+          {simulatedIncome === 0 && simulatedExpenses.length === 0 && (
+            <div className={styles.infoCard}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+              <p>Configure sua renda e despesas simuladas no painel ao lado para ver a comparação de resultados.</p>
+            </div>
+          )}
 
           <div className={styles.comparison}>
             <div className={styles.comparisonRow}>
