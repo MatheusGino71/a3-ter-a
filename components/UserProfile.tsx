@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { User, updateProfile, updateEmail, updatePassword } from 'firebase/auth'
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
 import { auth, db } from '@/lib/firebase'
@@ -66,11 +66,7 @@ export default function UserProfile({ user, onClose }: UserProfileProps) {
     confirmPassword: '',
   })
 
-  useEffect(() => {
-    loadUserProfile()
-  }, [user.uid])
-
-  const loadUserProfile = async () => {
+  const loadUserProfile = useCallback(async () => {
     try {
       const userDoc = await getDoc(doc(db, 'users', user.uid))
       if (userDoc.exists()) {
@@ -83,7 +79,11 @@ export default function UserProfile({ user, onClose }: UserProfileProps) {
     } catch (error) {
       console.error('Erro ao carregar perfil:', error)
     }
-  }
+  }, [user.uid, user.email])
+
+  useEffect(() => {
+    loadUserProfile()
+  }, [loadUserProfile])
 
   const handleSaveProfile = async () => {
     setLoading(true)
@@ -644,7 +644,7 @@ export default function UserProfile({ user, onClose }: UserProfileProps) {
                   <line x1="12" y1="16" x2="12" y2="12"/>
                   <line x1="12" y1="8" x2="12.01" y2="8"/>
                 </svg>
-                <p>Personalize sua experiência no Nexus de acordo com suas preferências. Clique em "Salvar Preferências" para aplicar as mudanças.</p>
+                <p>Personalize sua experiência no Nexus de acordo com suas preferências. Clique em &quot;Salvar Preferências&quot; para aplicar as mudanças.</p>
               </div>
 
               <button 
