@@ -6,9 +6,9 @@ Uma aplicação web interativa desenvolvida com Next.js 14+, React e TypeScript 
 
 ## � Demonstração Online
 
-**🔗 [Acesse a Aplicação](https://matheusgino71.github.io/a3-ter-a/)**
+** [Acesse a Aplicação](https://matheusgino71.github.io/a3-ter-a/)**
 
-> 📱 **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
+>  **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
 > 
 > **Deploy automático** - Atualizado automaticamente via GitHub Actions
 
@@ -18,23 +18,23 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 
 ## Funcionalidades
 
-- **🔐 Sistema de Autenticação**: Login/cadastro com e-mail ou Google
-- **👤 Perfil de Usuário Completo**: 
+- ** Sistema de Autenticação**: Login/cadastro com e-mail ou Google
+- ** Perfil de Usuário Completo**: 
   - Dados pessoais (nome, email, telefone, ocupação)
   - Perfil financeiro (renda mensal, objetivo, perfil de risco)
   - Segurança (alteração de senha)
-- **☁️ Sincronização na Nuvem**: Todos os dados salvos automaticamente no Firebase Firestore
-- **💰 Gerenciamento de Renda**: Insira e acompanhe sua renda mensal
-- **📊 Controle de Despesas**: Adicione, edite e remova despesas com categorias
-- **💹 Resumo Financeiro em Tempo Real**: Visualize saldo mensal e taxa de economia instantaneamente
-- **📈 Gráficos Interativos**: Visualize a distribuição de suas despesas em gráficos profissionais
-- **📊 Analytics Dashboard**: Painel estilo Power BI com 7+ tipos de gráficos interativos
-- **🎯 Simulação de Cenários**: Experimente diferentes cenários financeiros e compare resultados com gráficos
-- **🎯 Metas de Economia**: Defina e acompanhe metas financeiras com progresso visual
-- **🏖️ Projeção de Aposentadoria**: Calcule sua aposentadoria com base nos dados atuais
-- **📜 Histórico de Transações**: Visualize e filtre todas as suas transações
-- **📤 Exportação de Dados**: Exporte seus dados em formato CSV
-- **🎨 Design Profissional**: Interface moderna com glassmorphism e tema escuro
+- ** Sincronização na Nuvem**: Todos os dados salvos automaticamente no Firebase Firestore
+- ** Gerenciamento de Renda**: Insira e acompanhe sua renda mensal
+- ** Controle de Despesas**: Adicione, edite e remova despesas com categorias
+- ** Resumo Financeiro em Tempo Real**: Visualize saldo mensal e taxa de economia instantaneamente
+- ** Gráficos Interativos**: Visualize a distribuição de suas despesas em gráficos profissionais
+- ** Analytics Dashboard**: Painel estilo Power BI com 7+ tipos de gráficos interativos
+- ** Simulação de Cenários**: Experimente diferentes cenários financeiros e compare resultados com gráficos
+- ** Metas de Economia**: Defina e acompanhe metas financeiras com progresso visual
+- ** Projeção de Aposentadoria**: Calcule sua aposentadoria com base nos dados atuais
+- ** Histórico de Transações**: Visualize e filtre todas as suas transações
+- ** Exportação de Dados**: Exporte seus dados em formato CSV
+- ** Design Profissional**: Interface moderna com glassmorphism e tema escuro
 
 ## Tecnologias Utilizadas
 
@@ -51,7 +51,7 @@ Responder à questão: **"Como a simulação de cenários financeiros pode influ
 - **Persistência**: Firebase Firestore com sincronização automática
 - **Deployment**: Firebase Hosting
 
-## 📁 Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```
 /
@@ -139,7 +139,7 @@ Para executar a build de produção:
 npm start
 ```
 
-## 🔥 Deploy no Firebase
+##  Deploy no Firebase
 
 ### Configuração Inicial do Firebase
 
@@ -214,7 +214,7 @@ O Firebase já está configurado em `lib/firebase.ts` com:
 
 11. **Exporte Dados**: Use o botão de exportar para baixar seus dados em CSV
 
-## 🎨 Características da Interface
+##  Características da Interface
 
 - **Design Moderno**: Interface profissional com glassmorphism
 - **Tema Escuro**: Palette de cores otimizada para conforto visual
@@ -223,7 +223,7 @@ O Firebase já está configurado em `lib/firebase.ts` com:
 - **Feedback Visual**: Cores semânticas para diferentes estados
 - **Animações Suaves**: Transições e hover effects profissionais
 
-## 🧩 Arquitetura dos Componentes
+##  Arquitetura dos Componentes
 
 ### Dashboard Principal
 - **FinancialDashboard**: Orquestra todas as seções com navegação por abas
@@ -243,7 +243,7 @@ O Firebase já está configurado em `lib/firebase.ts` com:
 - **Cards**: Componentes modulares para dados
 - **Tabelas**: Listagem responsiva com ações
 
-## 🔧 Configuração TypeScript
+##  Configuração TypeScript
 
 Interfaces bem estruturadas:
 
@@ -278,7 +278,7 @@ interface UserProfileData {
 }
 ```
 
-## 🔥 Sistema de Perfil de Usuário
+##  Sistema de Perfil de Usuário
 
 ### Funcionalidades do Perfil
 
@@ -322,19 +322,19 @@ users/
 
 ### Sincronização Automática
 
-- ✅ Dados salvos em tempo real no Firebase
-- ✅ Sincronização entre dispositivos
-- ✅ Backup automático na nuvem
-- ✅ Isolamento de dados por usuário (cada usuário vê apenas seus dados)
+-  Dados salvos em tempo real no Firebase
+-  Sincronização entre dispositivos
+-  Backup automático na nuvem
+-  Isolamento de dados por usuário (cada usuário vê apenas seus dados)
 
-## 📝 Scripts Disponíveis
+##  Scripts Disponíveis
 
 - `npm run dev` - Servidor de desenvolvimento
 - `npm run build` - Build de produção
 - `npm start` - Execução em produção
 - `npm run lint` - Verificação de código
 
-## 🌟 Destaques Técnicos
+##  Destaques Técnicos
 
 - **Performance**: Otimizada com `useMemo` e `useCallback`
 - **Persistência**: Dados salvos em localStorage
@@ -343,7 +343,7 @@ users/
 - **SEO**: Metadata otimizada com Next.js
 - **Fontes**: Otimização automática com `next/font/google`
 
-## 🎥 Demonstração
+##  Demonstração
 
 A aplicação inclui:
 - Tela inicial com vídeo background profissional
@@ -351,10 +351,10 @@ A aplicação inclui:
 - Interface responsiva e moderna
 - Dados persistentes entre sessões
 
-## 📄 Licença
+##  Licença
 
 Este projeto foi desenvolvido para fins educacionais.
 
-## 👨‍💻 Desenvolvimento
+##  Desenvolvimento
 
 Desenvolvido usando as melhores práticas de desenvolvimento web moderno, incluindo Next.js 15, TypeScript, Tailwind CSS e design system profissional.
