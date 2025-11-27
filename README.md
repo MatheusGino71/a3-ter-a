@@ -6,7 +6,7 @@ Uma aplicação web interativa desenvolvida com Next.js 14+, React e TypeScript 
 
 ## � Demonstração Online
 
-** [Acesse a Aplicação]([https://a3-ter-a.vercel.app/)**
+** [Acesse a Aplicação] ** ([https://a3-ter-a.vercel.app/) **
 
 >  **Totalmente responsivo** - Funciona perfeitamente em desktop, tablet e mobile
 > 
